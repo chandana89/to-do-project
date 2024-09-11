@@ -1,8 +1,10 @@
 import DataTable from 'react-data-table-component';
 import { useQuery } from "@tanstack/react-query";
-import { fetchTasks } from '../api/tasksApi';
+import { deleteTask, fetchTasks } from '../api/tasksApi';
 import { useNavigate } from "react-router-dom";
-import { IconPlus } from "@tabler/icons-react";
+import { IconPlus, IconPencil, IconTrash } from "@tabler/icons-react";
+import { usePostData } from '../hooks/usePostData';
+import toast from "react-hot-toast";
 
 export default function ViewTasks() {
 
@@ -12,6 +14,30 @@ export default function ViewTasks() {
         queryKey: ["fetchTasks"],
         queryFn: () => fetchTasks(),
     });
+
+    const deleteTaskData = usePostData(deleteTask, ["deleteTask"]);
+
+    const handleEditTask = (task) => {
+        console.log("edit")
+        // navigate(`/edit/${task.id}`);
+    };
+
+    const handleDeleteTask = (taskId) => {
+        
+        console.log("Deleting task with id:", taskId);
+        deleteTaskData.mutateAsync(taskId, {
+            onSuccess: (message) => {
+                toast.success("Deleted task successfully!");
+            },
+            onError: (error) => {
+                toast.error("Error updating data: " + error.message);
+            },
+            // onSettled: () => {
+            //     setSubmitting(false);
+            // },
+        });
+        
+    };
 
     const columns = [
         {
@@ -25,6 +51,27 @@ export default function ViewTasks() {
         {
             name: 'Status',
             selector: row => row.Status,
+        },
+        {
+            name: 'Actions',
+            cell: row => (
+                <div className="flex items-center gap-2">
+                    {/* Edit Button */}
+                    <button 
+                        className="text-blue-500" 
+                        onClick={() => handleEditTask(row)}
+                    >
+                        <IconPencil className="h-5 w-5" />
+                    </button>
+                    {/* Delete Button */}
+                    <button 
+                        className="text-red-500" 
+                        onClick={() => handleDeleteTask(row.TaskID)}
+                    >
+                        <IconTrash className="h-5 w-5" />
+                    </button>
+                </div>
+            ),
         },
     ];
 
@@ -54,7 +101,7 @@ export default function ViewTasks() {
                     </div>
                 </div>
 
-                {/* Table should take full width */}
+            
                 <div className="bg-white shadow-lg rounded-lg w-full">
                     <DataTable
                         title="TO DO List"
