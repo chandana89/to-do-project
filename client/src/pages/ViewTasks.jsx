@@ -130,7 +130,7 @@ export default function ViewTasks() {
             
                 <div className="bg-white shadow-lg rounded-lg w-full">
                     <DataTable
-                        title="TO DO List"
+                        title="Your TO-DO List"
                         columns={columns}
                         data={fetchTasksData.data}
                         pagination
