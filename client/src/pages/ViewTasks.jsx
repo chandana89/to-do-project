@@ -17,9 +17,8 @@ export default function ViewTasks() {
 
     const deleteTaskData = usePostData(deleteTask, ["deleteTask"]);
 
-    const handleEditTask = (task) => {
-        console.log("edit")
-        // navigate(`/edit/${task.id}`);
+    const handleEditTask = (taskId) => {
+        navigate(`/edit/${taskId}`);
     };
 
     const handleDeleteTask = (taskId) => {
@@ -59,7 +58,7 @@ export default function ViewTasks() {
                     {/* Edit Button */}
                     <button 
                         className="text-blue-500" 
-                        onClick={() => handleEditTask(row)}
+                        onClick={() => handleEditTask(row.TaskID)}
                     >
                         <IconPencil className="h-5 w-5" />
                     </button>

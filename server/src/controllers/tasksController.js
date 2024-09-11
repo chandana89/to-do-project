@@ -1,4 +1,4 @@
-const { getTasks, addTask, deleteTask } = require("../models/tasksModel");
+const { getTasks, addTask, deleteTask, getTask } = require("../models/tasksModel");
 
 
 exports.fetchTasks = async (req, res) => {
@@ -24,6 +24,16 @@ exports.deleteTaskById = async (req, res) => {
   try {
   //  console.log(req.params.taskId)
     const result = await deleteTask(req.params.taskId);
+    res.status(200).json(result);
+  } catch (err) {
+    res.status(500).send({ error: err });
+  }
+};
+
+exports.getTaskById = async (req, res) => {
+  try {
+  //  console.log(req.params.taskId)
+    const result = await getTask(req.params.taskId);
     res.status(200).json(result);
   } catch (err) {
     res.status(500).send({ error: err });

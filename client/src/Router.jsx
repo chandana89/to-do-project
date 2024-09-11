@@ -16,13 +16,13 @@ const router = createBrowserRouter([
          <AddTask></AddTask>
         ),
     },
-    // {
-    //     // URL: "/edit"
-    //     path: "/edit",
-    //     element: (
-         
-    //     ),
-    // },
+    {
+        // URL: "/edit"
+        path: "/edit/:taskId",
+        element: (
+         <AddTask></AddTask>
+        ),
+    },
 
 ]);
 
