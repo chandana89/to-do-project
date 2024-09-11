@@ -62,6 +62,21 @@ export default function ViewTasks() {
         {
             name: 'Status',
             selector: row => row.Status,
+            cell: row => (
+                row.Status === "pending" ? (
+                    <p className="bg-red-200 w-25 text-center font-semibold text-red-700 rounded-3xl px-4 py-2">
+                        Pending
+                    </p>
+                ) : (
+                    <p className="bg-green-200 w-25 text-center font-semibold text-green-700 rounded-3xl px-4 py-2">
+                        Completed
+                    </p>
+                )
+            
+               
+                
+            )
+
         },
         {
             name: 'Actions',
