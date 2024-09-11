@@ -79,7 +79,7 @@ export default function AddTask() {
 
     return (
         
-        <div className="max-w-md mx-auto p-6 bg-gray rounded-lg shadow-lg">
+        <div className="max-w-md mx-auto p-6 mt-6 bg-gray-100 rounded-lg shadow-lg">
             <button
                 className="flex items-center text-blue-600 hover:text-blue-800 transition duration-200"
                 onClick={() => navigate("/")}
