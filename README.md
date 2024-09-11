@@ -30,9 +30,6 @@ Ensure you have the following installed on your machine:
    ```plaintext
     # Environment configuration file
 
-    # Application environment
-    NODE_ENV=development            # The environment in which the application is running (development, production, test)
-
     # Port configuration
     SERVER_PORT=3000                # Port number for the Express server (HTTP server)
 
