@@ -8,8 +8,9 @@ import { usePostData } from "../hooks/usePostData";
 import toast from "react-hot-toast";
 import { addTaskSchema } from "../schema/addTaskSchema";
 import Select from "../form/Select";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import { IconArrowLeft } from "@tabler/icons-react";
 
 export default function AddTask() {
 
@@ -22,6 +23,7 @@ export default function AddTask() {
     });
     const { taskId } = useParams();
     const [showEdit, setShowEdit] = useState(false);
+    const navigate = useNavigate();
 
     // Handle task data fetching and setting initial values
     const taskData = useQuery({
@@ -76,8 +78,20 @@ export default function AddTask() {
     }
 
     return (
+        
         <div className="max-w-md mx-auto p-6 bg-gray rounded-lg shadow-lg">
-            <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">{showEdit ? 'Edit Task' : 'Add New Task'}</h1>
+            <button
+                className="flex items-center text-blue-600 hover:text-blue-800 transition duration-200"
+                onClick={() => navigate("/")}
+                >
+                    <IconArrowLeft className="h-6 w-6 mr-1" />
+                    <span>Back</span>
+            </button>
+            
+                
+            <h1 className="text-2xl font-bold text-center text-gray-800 w-full">{showEdit ? 'Edit Task' : 'Add New Task'}</h1>
+                
+            
             <Formik
                 initialValues={initialValues}
                 validationSchema={addTaskSchema}
