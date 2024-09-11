@@ -1,12 +1,13 @@
 import { Formik, Form } from "formik";
 import Input from "../form/Input";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import SubmitButton from "../form/SubmitButton";
 import TextArea from "../form/TextArea";
 import { addTask } from "../api/tasksApi";
 import { usePostData } from "../hooks/usePostData";
 import toast from "react-hot-toast";
 import { addTaskSchema } from "../schema/addTaskSchema";
+import Select from "../form/Select";
 
 export default function AddTask() {
 
@@ -14,7 +15,8 @@ export default function AddTask() {
     const [formikState, setFormikState] = useState({});
     const [initialValues, setInitialValues] = useState({
         title: "",
-        description: ""
+        description: "",
+        status: ""
     });
 
     const addTasks = usePostData(addTask, ["addTask"]);
@@ -59,7 +61,15 @@ export default function AddTask() {
                             label="Description"
                             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
                         />
-
+                        <Select
+                            name="status"
+                            label="Status"
+                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
+                            options={[
+                                { key: "Pending", value: "pending" },
+                                { key: "Completed", value: "completed" }
+                              ]}
+                        />
                         <SubmitButton
                             formik={formik}
                             className="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition duration-300"

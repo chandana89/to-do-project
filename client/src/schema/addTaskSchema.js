@@ -33,4 +33,9 @@ export const addTaskSchema = yup.object().shape({
                 "Must only contain letters, numbers, and standard punctuation"
             )
             .required("This field is required"),
+    status :yup
+            .string()
+            .trim()
+            .oneOf(["pending", "completed"], "Please enter a valid status")
+            .required("This field is required"),
 });

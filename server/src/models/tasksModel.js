@@ -17,7 +17,7 @@ async function addTask(data) {
       Tasks (Title, Description, Status)
       VALUES (?,?,?)
     `;
-    const taskValues = [data.title, data.description, 'pending']
+    const taskValues = [data.title, data.description, data.status]
     const [taskResults] = await db.promise().query(taskQuery, taskValues);
     return taskResults;
   } catch (error) {
