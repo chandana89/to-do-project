@@ -94,11 +94,13 @@ export default function AddTask() {
                             name="title"
                             label="Title"
                             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
+                            placeholder = "Enter title"
                         />
                         <TextArea
                             name="description"
                             label="Description"
                             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
+                            placeholder="Enter description"
                         />
                         <Select
                             name="status"

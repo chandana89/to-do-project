@@ -46,7 +46,7 @@ function Select(props) {
         className="input"
       >
         <option value="" key="">
-          {placeholder || `Select your ${label}`}
+          {placeholder || `Select task ${name}`}
         </option>
         {options &&
           options.map((option, index) => {
