@@ -116,7 +116,10 @@ export default function ViewTasks() {
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="w-full p-4">
-                
+                <div className="mb-5">
+                    <h2 className="text-2xl font-bold mb-2">Task Management Application</h2>
+                    <p className="text-gray-600 mb-4">Manage your tasks efficiently with our intuitive application. You can add, edit, and delete tasks with ease.</p>
+                </div>
                 <div className="flex justify-end mb-5">
                     <div
                         className="flex items-center bg-red-800 px-4 py-2 rounded-lg cursor-pointer"
