@@ -64,6 +64,10 @@ Open two terminals and follow these steps:
    npm install
    npm run dev
    ```
+   
+### Access the Application
+
+To access the application, open [Access Application](http://localhost:5173/) in your local browser after running it.
 
 ---
 
