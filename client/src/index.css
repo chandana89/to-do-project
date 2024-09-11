@@ -65,6 +65,12 @@ h6 {
   @apply flex flex-col items-start mb-3;
 }
 
+.customHeader{
+  @apply text-lg font-semibold text-gray-800;
+}
+
+
+
 @layer components {
   /* Font className 
   *  font size, font weight, font color
@@ -110,6 +116,7 @@ h6 {
   .primary-btn {
     @apply w-full h-10 px-4 py-2 bg-red-800 text-gray-50 hover:bg-red-800/90 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-600 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
   }
+  
 }
 
 

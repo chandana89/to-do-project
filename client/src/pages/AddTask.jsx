@@ -105,21 +105,18 @@ export default function AddTask() {
                         <Input
                             name="title"
                             label="Title"
-                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
                             placeholder = "Enter title"
                             withAsterisk
                         />
                         <TextArea
                             name="description"
                             label="Description"
-                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
                             placeholder="Enter description"
                             withAsterisk
                         />
                         <Select
                             name="status"
                             label="Status"
-                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
                             options={[
                                 { key: "Pending", value: "pending" },
                                 { key: "Completed", value: "completed" }
@@ -128,7 +125,7 @@ export default function AddTask() {
                         />
                         <SubmitButton
                             formik={formik}
-                            className="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition duration-300"
+                            
                         >
                             {showEdit ? 'Edit' : 'Add'}
                         </SubmitButton>

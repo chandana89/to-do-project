@@ -47,11 +47,11 @@ export default function ViewTasks() {
 
     const columns = [
         {
-            name: 'Title',
+            name: <div className="customHeader">Title</div>,
             selector: row => row.Title,
         },
         {
-            name: 'Description',
+            name: <div className="customHeader">Description</div>,
             selector: row => row.Description,
             cell: row => (
                 
@@ -60,7 +60,7 @@ export default function ViewTasks() {
             )
         },
         {
-            name: 'Status',
+            name: <div className="customHeader">Status</div>,
             selector: row => row.Status,
             cell: row => (
                 row.Status === "pending" ? (
@@ -79,7 +79,7 @@ export default function ViewTasks() {
 
         },
         {
-            name: 'Actions',
+            name: <div className="customHeader">Actions</div>,
             cell: row => (
                 <div className="flex items-center gap-4">
                     {/* Edit Button */}
