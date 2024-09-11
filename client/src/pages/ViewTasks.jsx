@@ -86,6 +86,7 @@ export default function ViewTasks() {
                     <button 
                         className="text-blue-500"
                         onClick={() => handleEditTask(row.TaskID)}
+                        title="Edit Task"
                     >
                         <IconPencil className="h-5 w-5" />
                     </button>
@@ -93,6 +94,7 @@ export default function ViewTasks() {
                     <button 
                         className="text-red-500" 
                         onClick={() => handleDeleteTask(row.TaskID)}
+                        title='Delete Task'
                     >
                         <IconTrash className="h-5 w-5" />
                     </button>
