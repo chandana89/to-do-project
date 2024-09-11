@@ -54,10 +54,10 @@ export default function ViewTasks() {
         {
             name: 'Actions',
             cell: row => (
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-4">
                     {/* Edit Button */}
                     <button 
-                        className="text-blue-500" 
+                        className="text-blue-500"
                         onClick={() => handleEditTask(row.TaskID)}
                     >
                         <IconPencil className="h-5 w-5" />
