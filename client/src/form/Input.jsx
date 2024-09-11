@@ -1,10 +1,8 @@
 import { Field, ErrorMessage } from "formik";
 import TextError from "./TextError";
-import { IconInfoCircle } from "@tabler/icons-react";
-import { Tooltip } from "react-tooltip";
 
 const Input = (props) => {
-  const { label, name, placeholder, withAsterisk, disabled, tooltip, ...rest } =
+  const { label, name, placeholder, withAsterisk, disabled, ...rest } =
     props;
   return (
     <div className="form-control">
@@ -13,19 +11,6 @@ const Input = (props) => {
           {label}
         </label>
         {withAsterisk && <span className="asterisk"> *</span>}
-        {tooltip && (
-          <>
-            <IconInfoCircle
-              color="#374151"
-              size={16}
-              stroke={1.5}
-              id="icon-info"
-            />
-            <Tooltip anchorSelect="#icon-info" className="max-w-sm z-50">
-              {tooltip}
-            </Tooltip>
-          </>
-        )}
       </div>
 
       <Field

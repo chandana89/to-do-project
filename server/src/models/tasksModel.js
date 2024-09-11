@@ -46,10 +46,10 @@ async function deleteTask(taskId) {
     if (taskResults[0].affectedRows > 0) {
       return "Deleted Task successfully!!"
     }else{
-      throw new Error("Error while deleting new task");
+      throw new Error("Error while deleting task");
     }
   } catch (error) {
-    throw new Error("Error deleting new task", error);
+    throw new Error("Error deleting task", error);
   }
 }
 
@@ -62,7 +62,7 @@ async function getTask(taskId) {
     // console.log(taskResults)
     return taskResults;
   } catch (error) {
-    throw new Error("Error deleting new task", error);
+    throw new Error("Error fetching task", error);
   }
 }
 

@@ -25,14 +25,12 @@ export default function AddTask() {
     const [showEdit, setShowEdit] = useState(false);
     const navigate = useNavigate();
 
-    // Handle task data fetching and setting initial values
     const taskData = useQuery({
         queryKey: ["fetchTasksById", taskId],
         queryFn: () => fetchTasksById(taskId),
-        enabled: !!taskId // Only run this if taskId exists
+        enabled: !!taskId
     });
 
-    // Use effect to set the initial values when task data is fetched
     useEffect(() => {
         if (taskId && taskData.data) {
             setShowEdit(true);
@@ -109,12 +107,14 @@ export default function AddTask() {
                             label="Title"
                             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
                             placeholder = "Enter title"
+                            withAsterisk
                         />
                         <TextArea
                             name="description"
                             label="Description"
                             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
                             placeholder="Enter description"
+                            withAsterisk
                         />
                         <Select
                             name="status"
@@ -124,6 +124,7 @@ export default function AddTask() {
                                 { key: "Pending", value: "pending" },
                                 { key: "Completed", value: "completed" }
                               ]}
+                            withAsterisk
                         />
                         <SubmitButton
                             formik={formik}

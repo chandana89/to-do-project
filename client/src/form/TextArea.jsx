@@ -4,7 +4,7 @@ import { IconInfoCircle } from "@tabler/icons-react";
 import { Tooltip } from "react-tooltip";
 
 const TextArea = (props) => {
-  const { label, name, placeholder, withAsterisk, disabled, tooltip, ...rest } =
+  const { label, name, placeholder, withAsterisk, disabled, ...rest } =
     props;
   return (
     <div className="form-control">
@@ -13,19 +13,6 @@ const TextArea = (props) => {
           {label}
         </label>
         {withAsterisk && <span className="asterisk"> *</span>}
-        {tooltip && (
-          <>
-            <IconInfoCircle
-              color="#374151"
-              size={16}
-              stroke={1.5}
-              id="icon-info"
-            />
-            <Tooltip anchorSelect="#icon-info" className="max-w-sm z-50">
-              {tooltip}
-            </Tooltip>
-          </>
-        )}
       </div>
 
       <Field

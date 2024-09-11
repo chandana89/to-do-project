@@ -1,8 +1,8 @@
 import * as yup from "yup";
 
 const jobTitleRule = /^[a-zA-Z0-9\s,'-.]+$/;
-const noConsecutiveSpecialCharsRule = /^(?!.*([,'-.])\1).*$/;
-const noStartEndSpecialCharsRule = /^(?!^[,'-.])(?!.*[,'-.]$).*$/;
+const noConsecutiveSpecialChars = /^(?!.*([,'-.])\1).*$/;
+const noStartEndSpecialChars = /^(?!^[,'-.])(?!.*[,'-.]$).*$/;
 const generalTextRule = /^[a-zA-Z0-9\s.,;:?!()\-_'\"&@#/$%*]*$/;
 
 export const addTaskSchema = yup.object().shape({
@@ -15,12 +15,12 @@ export const addTaskSchema = yup.object().shape({
             .test(
                 "noConsecutiveSpecialCharsRule",
                 "Please enter a valid job title",
-                (value) => noConsecutiveSpecialCharsRule.test(value)
+                (value) => noConsecutiveSpecialChars.test(value)
             )
             .test(
                 "noStartEndSpecialCharsRule",
                 "Please enter a valid job title",
-                (value) => noStartEndSpecialCharsRule.test(value)
+                (value) => noStartEndSpecialChars.test(value)
             )
             .required("This field is required"),
   description: yup

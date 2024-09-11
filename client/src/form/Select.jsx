@@ -10,7 +10,6 @@ function Select(props) {
     options,
     withAsterisk,
     disabled,
-    tooltip,
     placeholder,
     ...rest
   } = props;
@@ -22,19 +21,6 @@ function Select(props) {
           {label}
         </label>
         {withAsterisk && <span className="asterisk"> *</span>}
-        {tooltip && (
-          <>
-            <IconInfoCircle
-              color="#374151"
-              size={16}
-              stroke={1.5}
-              id="icon-info"
-            />
-            <Tooltip anchorSelect="#icon-info" className="max-w-sm z-50">
-              {tooltip}
-            </Tooltip>
-          </>
-        )}
       </div>
 
       <Field
