@@ -44,7 +44,7 @@ export default function AddTask() {
 
     const addTasks = usePostData(addTask, ["addTask"]);
 
-    const onSubmit = async (values, { setSubmitting }) => {
+    const onSubmit = async (values, { setSubmitting, resetForm }) => {
         console.log("Form data", values);
         if(showEdit){
             values.taskId = taskId;
@@ -55,6 +55,7 @@ export default function AddTask() {
                     toast.success("Edited task successfully!");
                 }else{
                     toast.success("Added task successfully!");
+                    resetForm();
                 }
             },
             onError: (error) => {
