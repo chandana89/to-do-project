@@ -38,6 +38,13 @@ export default function ViewTasks() {
         
     };
 
+    const truncateDescription = (description, maxLength = 100) => {
+        if (description.length > maxLength) {
+            return description.slice(0, maxLength) + '...';
+        }
+        return description;
+    };
+
     const columns = [
         {
             name: 'Title',
@@ -46,6 +53,11 @@ export default function ViewTasks() {
         {
             name: 'Description',
             selector: row => row.Description,
+            cell: row => (
+                
+                <span>{truncateDescription(row.Description, 150)}</span>
+                
+            )
         },
         {
             name: 'Status',
